@@ -6,3 +6,4 @@ python-dotenv
 streamlit-folium
 folium
 fpdf
+plotly
