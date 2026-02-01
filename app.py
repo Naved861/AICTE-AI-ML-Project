@@ -14,16 +14,17 @@ from google.genai.errors import ClientError
 from dotenv import load_dotenv
 from fpdf import FPDF
 
+
 try:
+    
     GEMINI_KEY = st.secrets["GEMINI_API_KEY"]
     WEATHER_KEY = st.secrets["WEATHER_API_KEY"]
 except:
-    # If secrets aren't found, try local .env file
+    
     load_dotenv()
     GEMINI_KEY = os.getenv("GEMINI_API_KEY")
     WEATHER_KEY = os.getenv("WEATHER_API_KEY")
 
-# Double check if keys exist
 if not GEMINI_KEY:
     st.error("🚨 Gemini API Key not found! Please set it in Streamlit Secrets or .env.")
     st.stop()
@@ -345,3 +346,4 @@ else:
                     if st.button("Delete", key=f"d_{pid}"):
                         delete_plan(pid)
                         st.rerun()
+
